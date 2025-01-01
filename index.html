@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Dashboard</title>
+    
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="game-codes">
+            <div class="code-card" style="position: relative;">
+                <img src="https://64.media.tumblr.com/cfa455db6922b656891cc167b2af91c9/2404f57c157ae635-1d/s1280x1920/4226edfbc10e65494c9c9cd846a6f7b2a4098190.png" alt="Code" height="100" style="position: relative; top:0; right: 0;">
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="link-card">
+                <div class="stat-number"></div>
+                <div class="stat-label">Gespielte Spiele</div>
+            </div>
+            <div class="link-card">
+                <div class="stat-number"></div>
+                <div class="stat-label">Sitzungen</div>
+            </div>
+            <div class="link-card">
+                <div class="stat-number"></div>
+                <div class="stat-label">Errungenschaften</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mockData = {
+                uuid: '123456789',
+                stats: {
+                    games: 30,
+                    sessions: 223,
+                    achievements: 220
+                }
+            };
+
+            function updateStats(data) {
+                document.querySelector('.uuid').textContent = `UUID: ${data.uuid}`;
+                
+                const statNumbers = document.querySelectorAll('.stat-number');
+                statNumbers[0].textContent = data.stats.games;
+                statNumbers[1].textContent = data.stats.sessions;
+                statNumbers[2].textContent = data.stats.achievements;
+            }
+
+            // Initialize with mock data
+            updateStats(mockData);
+        });
+    </script>
+</body>
+</html>
